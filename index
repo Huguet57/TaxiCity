@@ -5,6 +5,8 @@
         <script src="utils.js"></script>
         <script src="defs.js"></script>
         <script src="messageboard.js"></script>
+        
+        <link href="./messageboard.css" rel="stylesheet" />
     </head>
     <body>
         Watch the console.

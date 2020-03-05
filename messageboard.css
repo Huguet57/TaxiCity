@@ -1,0 +1,21 @@
+.request {
+    
+}
+
+.cabify {
+    background: purple;
+    color: white;
+}
+
+.uber {
+    background: black;
+    color: white;
+}
+
+.taxify {
+    background: yellow;
+}
+
+.lyft {
+    background: pink;
+}

@@ -22,11 +22,11 @@ class MessageBoard {
         // Add all the values again
         this.requests.forEach(function(req) {
             let newMessage = document.createElement('div');
+            newMessage.className = 'request ' + req.brand.getname();
             
-            newMessage.innerHTML = req.id
-                                + ", " + req.mins
-                                + ", " + Math.round(req.brand.cost(req.mins), 2)
-                                + ", " + req.brand.getname();
+            newMessage.innerHTML = req.mins
+                                + "min -> " + Math.round(req.brand.cost(req.mins), 2)
+                                + "€ (" + req.brand.getname() + ")";
                                     
             document.getElementById("mainBoard").appendChild(newMessage);
         });

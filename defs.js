@@ -14,6 +14,10 @@ class Brand {
     getname() {
         return this.name;
     }
+    
+    getcolor() {
+        return this.color;
+    }
 };
 
 class Comparator {
