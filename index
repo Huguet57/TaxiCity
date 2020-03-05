@@ -1,6 +1,8 @@
 <html>
     <head>
         <meta charset="utf-8"/>
+        <script src="timedist.js"></script>
+        <script src="utils.js"></script>
         <script src="defs.js"></script>
         <script src="main.js"></script>
     </head>

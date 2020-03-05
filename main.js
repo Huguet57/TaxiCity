@@ -9,3 +9,5 @@ let person = new Comparator(brands);
 console.log(uber);
 console.log(lyft.cost(20));
 console.log(person.bestCost(89));
+
+let Andy = new Person(1, "Andy Wharhol", brands);

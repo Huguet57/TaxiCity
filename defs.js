@@ -7,8 +7,8 @@ class Brand {
         this.moving = moving;
     }
     
-    cost(kms) {
-        return this.fix + kms*this.moving;
+    cost(mins) {
+        return this.fix + mins*this.moving;
     }
     
     getname() {
@@ -21,12 +21,12 @@ class Comparator {
         this.brands = brands;
     }
     
-    bestCost(kms) {
+    bestCost(mins) {
         let minCost = 1e9;
         let minBrand = "None";
         
         this.brands.forEach(function(el) {
-            let cost = el.cost(kms);
+            let cost = el.cost(mins);
             
             if (minCost > cost) {
                 minCost = cost;
@@ -42,7 +42,14 @@ class Comparator {
 };
 
 class Person extends Comparator{
-    constructor(brands) {
+    constructor(id, name, brands) {
+        this.id = id;
+        this.name = name;
         super(brands);
     }
-}
+    
+    request() {
+        this.mins = randMin();
+        return this.mins;
+    }
+};
