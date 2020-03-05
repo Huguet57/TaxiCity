@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="defs.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        Watch the console.
+    </body>
+</html>
