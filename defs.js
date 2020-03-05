@@ -19,37 +19,53 @@ class Brand {
 class Comparator {
     constructor(brands) {
         this.brands = brands;
+        this.minCost = 1e9;
+        this.minBrand = null;
     }
     
-    bestCost(mins) {
+    calcBest(mins) {
         let minCost = 1e9;
-        let minBrand = "None";
+        let minBrand = null;
         
         this.brands.forEach(function(el) {
             let cost = el.cost(mins);
             
             if (minCost > cost) {
                 minCost = cost;
-                minBrand = el.getname();
+                minBrand = el;
             }
         });
         
-        console.log("Min cost: " + minCost)
-        console.log("Min brand: " + minBrand)
-        
-        return minCost;
+        this.minCost = minCost;
+        this.minBrand = minBrand;
+    }
+    
+    bestCost(mins) {
+        this.calcBest(mins);       
+        return this.minCost;
+    }
+    
+    bestBrand(mins) {
+        this.calcBest(mins);       
+        return this.minBrand;
     }
 };
 
-class Person extends Comparator{
-    constructor(id, name, brands) {
-        this.id = id;
-        this.name = name;
-        super(brands);
+class Request {
+    constructor(personid, mins, brand) {
+        this.personid = personid;
+        this.mins = mins;
+        this.cost = brand.cost(mins);
+        this.brand = brand;
     }
     
-    request() {
-        this.mins = randMin();
-        return this.mins;
+    hail(msgboard) {
+        msgboard.add({
+            id: this.personid,
+            mins: this.mins,
+            brand: this.brand
+        });
+        
+        msgboard.update();
     }
 };

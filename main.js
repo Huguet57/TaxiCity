@@ -4,10 +4,14 @@ let lyft = new Brand("Lyft", "FFC0CB", 6, 0.3);
 let taxify = new Brand("Taxify", "FFFF00", 12, 0.1);
 
 let brands = [cabify, uber, lyft, taxify];
-let person = new Comparator(brands);
+let comparator = new Comparator(brands);
+let mainBoard = new MessageBoard("mainBoard");
 
-console.log(uber);
-console.log(lyft.cost(20));
-console.log(person.bestCost(89));
-
-let Andy = new Person(1, "Andy Wharhol", brands);
+setInterval(function () {
+    let id = randInt(1,4);
+    let mins = randMin();
+    let brand = comparator.bestBrand(mins);
+    
+    let req = new Request(id, mins, brand);
+    req.hail(mainBoard);
+}, 1500);
