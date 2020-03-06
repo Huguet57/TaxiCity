@@ -65,7 +65,7 @@ class Request {
     
     hail(msgboard) {
         msgboard.add({
-            id: this.personid,
+            id: randInt(0,1e8),
             mins: this.mins,
             brand: this.brand
         });

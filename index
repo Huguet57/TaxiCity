@@ -9,8 +9,6 @@
         <link href="./messageboard.css" rel="stylesheet" />
     </head>
     <body>
-        Watch the console.
-        
         <div id="mainBoard"></div>
         <script src="main.js"></script>
     </body>
