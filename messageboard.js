@@ -1,6 +1,9 @@
-class MessageBoard {
-    constructor(divid) {
+class MessageBoard extends Comparator {
+    constructor(divid, brands) {
+        super(brands);
         this.divid = divid;
+        this.brands = brands;
+        
         this.requests = [];
         this.printedRequests = [];
     }
@@ -18,6 +21,7 @@ class MessageBoard {
     
     update() {
         let oldthis = this;
+        let brands = this.brands;
         
         // Add all the values again
         this.requests.forEach(function(req) {
@@ -28,6 +32,7 @@ class MessageBoard {
             newMessage.className = 'request ' + req.brand.getname();
             
             let table = document.createElement('table');
+            table.setAttribute('id', req.id);
             
                 // Header
                 let header = document.createElement('th');
@@ -58,11 +63,39 @@ class MessageBoard {
                 let buttoncell = document.createElement('td');
                 let buttonContent = document.createElement('button');                
                 let buttonText = document.createTextNode('Més info');
+                
+                buttonContent.addEventListener('click', function() {
+                    switchHidden(req.id);
+                }, false);
+                
                 buttonContent.appendChild(buttonText);
                 buttoncell.appendChild(buttonContent);
                 mainrow.appendChild(buttoncell);
                 
                 table.appendChild(mainrow);
+                
+                // Prices comparation row
+                let pricerow = document.createElement('tr');
+                pricerow.className = 'toHide';
+                let brandsrow = document.createElement('tr');
+                brandsrow.className = 'toHide';
+                
+                brands.forEach(function (brand) {
+                    price = Math.round(brand.cost(req.mins), 2);
+                    pricecell = document.createElement('td');
+                    priceContent = document.createTextNode(price + '€');
+                    
+                    pricecell.appendChild(priceContent);
+                    pricerow.appendChild(pricecell);
+                    
+                    let brandContainer = document.createElement('td');
+                    let brandContent = document.createTextNode(brand.getname());
+                    brandContainer.appendChild(brandContent);
+                    brandsrow.appendChild(brandContainer);
+                });
+                
+                table.appendChild(brandsrow);
+                table.appendChild(pricerow);
                 
             document.getElementById("mainBoard").appendChild(table);
         });

@@ -5,13 +5,15 @@ let taxify = new Brand("Taxify", "FFFF00", 12, 0.1);
 
 let brands = [cabify, uber, lyft, taxify];
 let comparator = new Comparator(brands);
-let mainBoard = new MessageBoard("mainBoard");
+let mainBoard = new MessageBoard("mainBoard", brands);
 
-setInterval(function () {
+let interv = setInterval(function () {
     let id = randInt(1,4);
     let mins = randMin();
     let brand = comparator.bestBrand(mins);
     
     let req = new Request(id, mins, brand);
     req.hail(mainBoard);
-}, 1500);
+}, 5000);
+
+// switchHidden(document.getElementById('mainBoard'));

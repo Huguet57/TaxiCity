@@ -19,3 +19,7 @@
 .lyft {
     background: pink;
 }
+
+.toHide {
+    display: none;
+}
