@@ -7,6 +7,15 @@ function randMin() {
     return timedist[randIndex];    
 }
 
+function randHail() {
+    let id = randInt(1,4);
+    let mins = randMin();
+    let brand = comparator.bestBrand(mins);
+    
+    let req = new Request(id, mins, brand);
+    req.hail(mainBoard);    
+}
+
 function switchHidden(tableid) {
     let table = document.getElementById(tableid);
     

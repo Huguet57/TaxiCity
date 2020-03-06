@@ -9,6 +9,9 @@
         <link href="./messageboard.css" rel="stylesheet" />
     </head>
     <body>
+        <div id="hailercontainer">
+            <button id="hailer">Demana un taxi.</button>
+        </div>
         <div id="mainBoard"></div>
         <script src="main.js"></script>
     </body>

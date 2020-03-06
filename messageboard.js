@@ -27,26 +27,20 @@ class MessageBoard extends Comparator {
         this.requests.forEach(function(req) {
             if (oldthis.printedRequests.indexOf(req.id) > -1) return;
             else oldthis.printedRequests.push(req.id);
-            
-            let newMessage = document.createElement('div');
-            newMessage.className = 'request ' + req.brand.getname();
-            
+                        
             let table = document.createElement('table');
             table.setAttribute('id', req.id);
-            
-                // Header
-                let header = document.createElement('th');
-                let headerContent = document.createTextNode(req.brand.getname());
-                header.appendChild(headerContent);
-                table.appendChild(header);
-            
+            table.className = 'request';
+
                 // Main Row
                 let mainrow = document.createElement('tr');
                 
                 let iconcell = document.createElement('td');
-                let iconContent = document.createElement('img');
-                iconContent.className = 'icon ' + req.brand.getname();
-                iconcell.appendChild(iconContent);
+                let iconContainer = document.createElement('span');
+                let iconContent = document.createTextNode(req.brand.getname());
+                iconContainer.appendChild(iconContent);
+                iconContainer.className = 'icon ' + req.brand.getname();
+                iconcell.appendChild(iconContainer);
                 mainrow.appendChild(iconcell);
                 
                 let mincell = document.createElement('td');
@@ -85,11 +79,20 @@ class MessageBoard extends Comparator {
                     pricecell = document.createElement('td');
                     priceContent = document.createTextNode(price + '€');
                     
+                    if (brand.getname() == req.brand.getname()) {
+                        pricecell.className = 'lowestPrice';
+                    }
+                    
                     pricecell.appendChild(priceContent);
                     pricerow.appendChild(pricecell);
                     
                     let brandContainer = document.createElement('td');
                     let brandContent = document.createTextNode(brand.getname());
+                    
+                    if (brand.getname() == req.brand.getname()) {
+                        brandContainer.className = 'lowestPrice';
+                    }
+                    
                     brandContainer.appendChild(brandContent);
                     brandsrow.appendChild(brandContainer);
                 });

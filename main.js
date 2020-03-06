@@ -7,13 +7,12 @@ let brands = [cabify, uber, lyft, taxify];
 let comparator = new Comparator(brands);
 let mainBoard = new MessageBoard("mainBoard", brands);
 
-let interv = setInterval(function () {
-    let id = randInt(1,4);
-    let mins = randMin();
-    let brand = comparator.bestBrand(mins);
-    
-    let req = new Request(id, mins, brand);
-    req.hail(mainBoard);
-}, 5000);
+/*
+setTimeout(randHail, 500);
+let interv = setInterval(randHail, 5000);
+setTimeout(function () { clearInterval(interv) }, 15000);
+*/
 
-// switchHidden(document.getElementById('mainBoard'));
+let hailerButton = document.getElementById("hailer");
+hailerButton.addEventListener('click', randHail, false);
+

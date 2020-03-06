@@ -1,5 +1,35 @@
-.request {
-    
+#hailercontainer {
+    display: flex;
+    justify-content: center;
+}
+
+#hailer {
+    margin: 25px;
+    font-size: 18px;
+}
+
+#mainBoard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap
+}
+
+table.request {
+    font-size: 18px;
+    margin: 25px;
+    border: solid 1px black;
+    padding: 25px;
+    width: 360px;
+}
+
+table.request td {
+    padding: 10px;
+    width: 50px;
+}
+
+.icon {
+    font-weight: bold;
+    padding: 10px;
 }
 
 .cabify {
@@ -18,6 +48,10 @@
 
 .lyft {
     background: pink;
+}
+
+.lowestPrice {
+    font-weight: bold;
 }
 
 .toHide {
